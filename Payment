@@ -1,0 +1,162 @@
+package gui;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import java.awt.Color;
+
+import javax.swing.JTextField;
+
+import transactionBroker.Payment_Logic;
+import transactionBroker.UserToAdmin_Logic;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Payment {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Payment window = new Payment();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Payment() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0, 0, 1900, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblTransactionNumber = new JLabel("Transaction number ");
+		lblTransactionNumber.setForeground(new Color(0, 255, 0));
+		lblTransactionNumber.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblTransactionNumber.setBounds(6, 86, 212, 16);
+		frame.getContentPane().add(lblTransactionNumber);
+		
+		JLabel lblFlightNumber = new JLabel("Flight Number ");
+		lblFlightNumber.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblFlightNumber.setForeground(new Color(0, 255, 0));
+		lblFlightNumber.setBounds(6, 142, 212, 16);
+		frame.getContentPane().add(lblFlightNumber);
+		
+		JLabel lblDollarAmount = new JLabel("Dollar amount ");
+		lblDollarAmount.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblDollarAmount.setForeground(new Color(0, 255, 0));
+		lblDollarAmount.setBounds(6, 170, 193, 16);
+		frame.getContentPane().add(lblDollarAmount);
+		
+		JButton btnSubmit = new JButton("Submit ");
+		btnSubmit.setForeground(new Color(0, 128, 128));
+		btnSubmit.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnSubmit.setBounds(124, 248, 183, 54);
+		frame.getContentPane().add(btnSubmit);
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Payment_Logic.Transactions(textField_2, textField_3, textField_1);
+			}
+		});
+		
+		JButton btnHomeAgain = new JButton("");
+		btnHomeAgain.setForeground(new Color(0, 0, 0));
+		btnHomeAgain.setBackground(Color.BLACK);
+		Image img2 = new ImageIcon(this.getClass().getResource("/Home.png")).getImage();
+		 btnHomeAgain .setIcon(new ImageIcon(img2));
+		btnHomeAgain.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage.main(null);
+			}
+		});
+		
+		btnHomeAgain.setBounds(0, 0, 55, 54);
+		frame.getContentPane().add(btnHomeAgain);
+		
+		JButton btnLogout = new JButton("Logout ");
+		btnLogout.setBounds(1147, 0, 117, 29);
+		frame.getContentPane().add(btnLogout);
+		 btnLogout.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					Login.main(null); 
+					JOptionPane.showMessageDialog (null, "You are logout ", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+		
+		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/beach.jpg")).getImage();
+		
+		JLabel lblCustomerId_1 = new JLabel("Customer ID");
+		lblCustomerId_1.setForeground(Color.GREEN);
+		lblCustomerId_1.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblCustomerId_1.setBounds(6, 114, 212, 16);
+		frame.getContentPane().add(lblCustomerId_1);
+		
+		JLabel lblCreditCardNumber = new JLabel("Credit Card Number ");
+		lblCreditCardNumber.setForeground(Color.GREEN);
+		lblCreditCardNumber.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblCreditCardNumber.setBounds(6, 198, 243, 16);
+		frame.getContentPane().add(lblCreditCardNumber);
+		
+		textField = new JTextField();
+		textField.setBounds(241, 196, 212, 22);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(241, 165, 212, 22);
+		frame.getContentPane().add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(241, 137, 212, 22);
+		frame.getContentPane().add(textField_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(241, 109, 212, 22);
+		frame.getContentPane().add(textField_4);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(241, 81, 212, 22);
+		frame.getContentPane().add(textField_1);
+		lblNewLabel.setIcon(new ImageIcon(img));
+		lblNewLabel.setBounds(0, 0, 1265, 705);
+		frame.getContentPane().add(lblNewLabel);
+	}
+}
