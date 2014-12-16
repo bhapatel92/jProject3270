@@ -1,0 +1,100 @@
+package gui;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import transactionBroker.Admin_Logic;
+import transactionBroker.Login_Logic;
+
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class HomePage {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					HomePage window = new HomePage();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public HomePage() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0,0, 1900, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnSearch = new JButton("Search");
+		btnSearch.setForeground(new Color(0, 128, 128));
+		btnSearch.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnSearch.setBounds(502, 147, 287, 80);
+		frame.getContentPane().add(btnSearch);
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				SearchFlight.main(null);
+			}
+		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/HomePage.jpg")).getImage();
+		
+		JButton btnCart = new JButton("Cart");
+		btnCart.setForeground(new Color(0, 128, 128));
+		btnCart.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnCart.setBounds(502, 310, 287, 80);
+		frame.getContentPane().add(btnCart);
+		btnCart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ViewCart.main(null);
+			}
+		});
+		
+		JButton btnAdmin = new JButton("Admin");
+		btnAdmin.setForeground(new Color(0, 128, 128));
+		btnAdmin.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnAdmin.setBounds(502, 461, 287, 80);
+		frame.getContentPane().add(btnAdmin);
+		lblNewLabel.setIcon(new ImageIcon(img));
+		lblNewLabel.setBounds(0, 0, 1279, 681);
+		frame.getContentPane().add(lblNewLabel);
+		btnAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String username = Login_Logic.username; 
+				if (Admin_Logic.verification(username) == true) {
+					Admin.main(null);
+				} else {
+					JOptionPane.showInputDialog("Wrong");
+				}
+			}
+		});
+	}
+}
