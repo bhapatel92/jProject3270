@@ -1,0 +1,158 @@
+package gui;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JTextField;
+import javax.swing.JCheckBox;
+import javax.swing.JToggleButton;
+import javax.swing.JList;
+import javax.swing.JScrollBar;
+import javax.swing.JSeparator;
+import javax.swing.JButton;
+
+import transactionBroker.SearchFlight_Logic;
+
+public class SearchFlight {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_6;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SearchFlight window = new SearchFlight();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+	
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public SearchFlight() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0, 0, 1900, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblCity = new JLabel("Departure City");
+		lblCity.setForeground(new Color(0, 255, 0));
+		lblCity.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblCity.setBounds(48, 32, 156, 16);
+		frame.getContentPane().add(lblCity);
+		
+		JLabel lblTime = new JLabel("Airport");
+		lblTime.setForeground(new Color(0, 255, 0));
+		lblTime.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblTime.setBounds(676, 100, 140, 16);
+		frame.getContentPane().add(lblTime);
+		
+		JLabel lblDate = new JLabel("Date ");
+		lblDate.setForeground(new Color(0, 255, 0));
+		lblDate.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblDate.setBounds(48, 190, 61, 16);
+		frame.getContentPane().add(lblDate);
+		
+		JLabel lblNewLabel = new JLabel("Number of tickets");
+		lblNewLabel.setForeground(new Color(0, 255, 0));
+		lblNewLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblNewLabel.setBounds(624, 32, 204, 16);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBackground(new Color(0, 255, 0));
+		lblNewLabel_2.setForeground(new Color(0, 0, 0));
+		Image img = new ImageIcon(this.getClass().getResource("/Search.jpg")).getImage();
+		
+		JLabel lblDestinationCity = new JLabel("Destination City");
+		lblDestinationCity.setForeground(Color.GREEN);
+		lblDestinationCity.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		lblDestinationCity.setBounds(48, 110, 247, 16);
+		frame.getContentPane().add(lblDestinationCity);
+		
+		textField = new JTextField();
+		textField.setBounds(653, 128, 140, 28);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(653, 60, 140, 28);
+		frame.getContentPane().add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(48, 216, 140, 28);
+		frame.getContentPane().add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(48, 60, 140, 28);
+		frame.getContentPane().add(textField_3);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(48, 138, 140, 28);
+		frame.getContentPane().add(textField_6);
+		
+	
+		JButton btnNewButton = new JButton("Search");
+		btnNewButton.setBackground(new Color(0, 0, 0));
+		btnNewButton.setForeground(new Color(0, 128, 128));
+		btnNewButton.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnNewButton.setBounds(32, 606, 188, 40);
+		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				SearchResults.main(null);
+				SearchFlight_Logic.searchFlights(textField, textField_1, textField_2, textField_3, textField_6);
+			}
+		});
+		
+		JButton btnNewButton2 = new JButton("");
+		Image imgHomeAgain = new ImageIcon(this.getClass().getResource("/Home.png")).getImage();
+		btnNewButton2 .setIcon(new ImageIcon(imgHomeAgain));
+		btnNewButton2.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnNewButton2.setForeground(new Color(0, 128, 128));
+		btnNewButton2.setBounds(1220,0,55,54); 
+		frame.getContentPane().add(btnNewButton2);
+		btnNewButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage.main(null);
+			}
+		});
+		
+		lblNewLabel_2.setIcon(new ImageIcon(img));
+		lblNewLabel_2.setBounds(0, 0, 1280, 678);
+		frame.getContentPane().add(lblNewLabel_2);
+	}
+}
