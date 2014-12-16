@@ -1,0 +1,346 @@
+package gui;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import transactionBroker.AddFlightsAdmin_Logic;
+import transactionBroker.DeleteFlight_Logic;
+
+public class AddFlightsAdmin {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTextField textField_8;
+	private JTextField textField_9;
+	private JTextField textField_10;
+	private JTextField textField_11;
+	private JTextField textField_12;
+	private JTextField textField_13;
+	private JTextField textField_14;
+	private JTextField textField_15;
+	private JTextField textField_16;
+	private JTextField textField_17;
+	private JTextField textField_18;
+	private JTextField textField_19;
+	private JTextField textField_20;
+	private JTextField textField_21;
+	private JTextField textField_22;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AddFlightsAdmin window = new AddFlightsAdmin();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AddFlightsAdmin() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0, 0, 1900, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(335, 11, 238, 28);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton2 = new JButton("");
+		Image imgHomeAgain = new ImageIcon(this.getClass().getResource("/Home.png")).getImage();
+		btnNewButton2 .setIcon(new ImageIcon(imgHomeAgain));
+		btnNewButton2.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnNewButton2.setForeground(new Color(0, 128, 128));
+		btnNewButton2.setBounds(1220,0,55,54); 
+		frame.getContentPane().add(btnNewButton2);
+		btnNewButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage.main(null);
+			}
+		});
+		
+		JButton btnSave = new JButton("Add Flight");
+		btnSave.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnSave.setForeground(new Color(0, 128, 128));
+		btnSave.setBounds(980,400, 159, 50);
+		frame.getContentPane().add(btnSave);
+		btnSave.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0) {
+			AddFlightsAdmin_Logic.AddFlight(textField, textField_1,textField_2,textField_3,textField_4,textField_5,textField_6,
+					textField_8,textField_7,textField_9,textField_18,textField_19,textField_21,textField_20,textField_10,textField_11,textField_14,
+					textField_13,textField_17);
+					JOptionPane.showMessageDialog (null, "Flight Added", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+		}
+	}); 
+		
+		
+		JLabel lblFlightNumber = new JLabel("Flight Number ");
+		lblFlightNumber.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblFlightNumber.setBackground(Color.WHITE);
+		lblFlightNumber.setBounds(6, 17, 122, 16);
+		frame.getContentPane().add(lblFlightNumber);
+		
+		JLabel lblNewLabel = new JLabel("Departure date and time 2015-01-30 24hrs  ");
+		lblNewLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblNewLabel.setBounds(6, 56, 317, 16);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Arrival date and time 2015-01-30 24hrs  ");
+		lblNewLabel_1.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 13));
+		lblNewLabel_1.setBounds(6, 90, 317, 16);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblLayoverAirport = new JLabel("Layover airport ");
+		lblLayoverAirport.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblLayoverAirport.setBounds(6, 130, 146, 16);
+		frame.getContentPane().add(lblLayoverAirport);
+		
+		JLabel lblNewLabel_2 = new JLabel("Layover duration ");
+		lblNewLabel_2.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(6, 158, 146, 16);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Departure Airport (JFK) ");
+		lblNewLabel_3.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblNewLabel_3.setBounds(6, 197, 207, 16);
+		frame.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Departure city (Atlanta) ");
+		lblNewLabel_4.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblNewLabel_4.setBounds(6, 237, 196, 16);
+		frame.getContentPane().add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("Departure State (GA)");
+		lblNewLabel_5.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblNewLabel_5.setBounds(6, 309, 196, 16);
+		frame.getContentPane().add(lblNewLabel_5);
+		
+		JLabel lblDepartureCountrygermany = new JLabel("Departure Country (Germany) ");
+		lblDepartureCountrygermany.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblDepartureCountrygermany.setBounds(6, 275, 224, 16);
+		frame.getContentPane().add(lblDepartureCountrygermany);
+		
+		JLabel lblDestinationCodejfk = new JLabel("Destination code (JFK) ");
+		lblDestinationCodejfk.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblDestinationCodejfk.setBounds(641, 347, 196, 16);
+		frame.getContentPane().add(lblDestinationCodejfk);
+		
+		JLabel lblNewLabel_6 = new JLabel("First class capacitiy ");
+		lblNewLabel_6.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblNewLabel_6.setBounds(6, 435, 173, 16);
+		frame.getContentPane().add(lblNewLabel_6);
+		
+		JLabel lblEconomyCapacity = new JLabel("Economy capacity ");
+		lblEconomyCapacity.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblEconomyCapacity.setBounds(6, 469, 146, 16);
+		frame.getContentPane().add(lblEconomyCapacity);
+		
+		JLabel lblBooked = new JLabel("First class booked ");
+		lblBooked.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblBooked.setBounds(6, 509, 173, 16);
+		frame.getContentPane().add(lblBooked);
+		
+		JLabel lblEconomyBooked = new JLabel("Economy booked ");
+		lblEconomyBooked.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblEconomyBooked.setBounds(6, 593, 135, 16);
+		frame.getContentPane().add(lblEconomyBooked);
+		
+		JLabel lblPlaneType = new JLabel("Plane type ");
+		lblPlaneType.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblPlaneType.setBounds(6, 537, 128, 16);
+		frame.getContentPane().add(lblPlaneType);
+		
+		JLabel lblFirstClassCost = new JLabel("first class cost ");
+		lblFirstClassCost.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblFirstClassCost.setBounds(6, 565, 128, 16);
+		frame.getContentPane().add(lblFirstClassCost);
+		
+		JLabel lblEconomyCost = new JLabel("economy cost ");
+		lblEconomyCost.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblEconomyCost.setBounds(6, 639, 105, 16);
+		frame.getContentPane().add(lblEconomyCost);
+		
+		JLabel lblApplicableTax = new JLabel("Applicable tax %");
+		lblApplicableTax.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblApplicableTax.setBounds(6, 387, 135, 16);
+		frame.getContentPane().add(lblApplicableTax);
+		
+		JLabel lblNewLabel_7 = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/back.jpg")).getImage();
+		
+		JLabel lblDestinationAirportjfk = new JLabel("Destination Airport (JFK) ");
+		lblDestinationAirportjfk.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblDestinationAirportjfk.setBounds(641, 197, 207, 16);
+		frame.getContentPane().add(lblDestinationAirportjfk);
+		
+		JLabel lblDestinationCityatlanta = new JLabel("Destination city (Atlanta) ");
+		lblDestinationCityatlanta.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblDestinationCityatlanta.setBounds(641, 237, 224, 16);
+		frame.getContentPane().add(lblDestinationCityatlanta);
+		
+		JLabel lblDestinationStatega = new JLabel("Destination State (GA)");
+		lblDestinationStatega.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblDestinationStatega.setBounds(641, 309, 196, 16);
+		frame.getContentPane().add(lblDestinationStatega);
+		
+		JLabel lblDestinationCountrygermany = new JLabel("Destination Country (Germany) ");
+		lblDestinationCountrygermany.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblDestinationCountrygermany.setBounds(641, 275, 253, 16);
+		frame.getContentPane().add(lblDestinationCountrygermany);
+		
+		JLabel lblDepartureCode = new JLabel("Departure code ");
+		lblDepartureCode.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblDepartureCode.setBounds(6, 347, 196, 16);
+		frame.getContentPane().add(lblDepartureCode);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(336, 50, 238, 28);
+		frame.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(336, 84, 239, 28);
+		frame.getContentPane().add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(336, 124, 238, 28);
+		frame.getContentPane().add(textField_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(336, 152, 238, 28);
+		frame.getContentPane().add(textField_4);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(336, 191, 238, 28);
+		frame.getContentPane().add(textField_5);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(336, 231, 238, 28);
+		frame.getContentPane().add(textField_6);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(336, 269, 238, 28);
+		frame.getContentPane().add(textField_7);
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(336, 303, 238, 28);
+		frame.getContentPane().add(textField_8);
+		
+		textField_9 = new JTextField();
+		textField_9.setColumns(10);
+		textField_9.setBounds(336, 341, 238, 28);
+		frame.getContentPane().add(textField_9);
+		
+		textField_10 = new JTextField();
+		textField_10.setColumns(10);
+		textField_10.setBounds(336, 381, 238, 28);
+		frame.getContentPane().add(textField_10);
+		
+		textField_11 = new JTextField();
+		textField_11.setColumns(10);
+		textField_11.setBounds(336, 421, 238, 28);
+		frame.getContentPane().add(textField_11);
+		
+		textField_12 = new JTextField();
+		textField_12.setColumns(10);
+		textField_12.setBounds(336, 463, 238, 28);
+		frame.getContentPane().add(textField_12);
+		
+		textField_13 = new JTextField();
+		textField_13.setColumns(10);
+		textField_13.setBounds(336, 491, 238, 28);
+		frame.getContentPane().add(textField_13);
+		
+		textField_14 = new JTextField();
+		textField_14.setColumns(10);
+		textField_14.setBounds(336, 525, 238, 28);
+		frame.getContentPane().add(textField_14);
+		
+		textField_15 = new JTextField();
+		textField_15.setColumns(10);
+		textField_15.setBounds(336, 559, 238, 28);
+		frame.getContentPane().add(textField_15);
+		
+		textField_16 = new JTextField();
+		textField_16.setColumns(10);
+		textField_16.setBounds(336, 593, 238, 28);
+		frame.getContentPane().add(textField_16);
+		
+		textField_17 = new JTextField();
+		textField_17.setColumns(10);
+		textField_17.setBounds(336, 633, 238, 28);
+		frame.getContentPane().add(textField_17);
+		
+		textField_18 = new JTextField();
+		textField_18.setColumns(10);
+		textField_18.setBounds(896, 191, 238, 28);
+		frame.getContentPane().add(textField_18);
+		
+		textField_19 = new JTextField();
+		textField_19.setColumns(10);
+		textField_19.setBounds(896, 231, 238, 28);
+		frame.getContentPane().add(textField_19);
+		
+		textField_20 = new JTextField();
+		textField_20.setColumns(10);
+		textField_20.setBounds(896, 263, 238, 28);
+		frame.getContentPane().add(textField_20);
+		
+		textField_21 = new JTextField();
+		textField_21.setColumns(10);
+		textField_21.setBounds(896, 303, 238, 28);
+		frame.getContentPane().add(textField_21);
+		
+		textField_22 = new JTextField();
+		textField_22.setColumns(10);
+		textField_22.setBounds(896, 341, 238, 28);
+		frame.getContentPane().add(textField_22);
+		
+		frame.getContentPane().add(textField_22);
+		lblNewLabel_7.setIcon(new ImageIcon(img));
+		lblNewLabel_7.setBounds(0, 0, 1279, 683);
+		frame.getContentPane().add(lblNewLabel_7);
+	}
+}
