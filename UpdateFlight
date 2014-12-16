@@ -1,0 +1,113 @@
+package gui;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class UpdateFlight {
+	private JFrame frame;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UpdateFlight window = new UpdateFlight();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public UpdateFlight() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0, 00, 1900, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+	
+		
+		JButton btnNewButton2 = new JButton("");
+		Image imgHomeAgain = new ImageIcon(this.getClass().getResource("/Home.png")).getImage();
+		btnNewButton2 .setIcon(new ImageIcon(imgHomeAgain));
+		btnNewButton2.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnNewButton2.setForeground(new Color(0, 128, 128));
+		btnNewButton2.setBounds(0,610,55,54); 
+		frame.getContentPane().add(btnNewButton2);
+		btnNewButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage.main(null);
+			}
+		});
+		
+		
+		JLabel lblFlightNumber = new JLabel("Flight Number ");
+		lblFlightNumber.setBounds(25, 46, 112, 16);
+		frame.getContentPane().add(lblFlightNumber);
+		
+		textField = new JTextField();
+		textField.setBounds(149, 40, 134, 28);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JButton btnRetrieveDate = new JButton("Retrieve Date ");
+		btnRetrieveDate.setBounds(327, 41, 117, 29);
+		frame.getContentPane().add(btnRetrieveDate);
+		
+		JButton btnNewButton = new JButton("Final Update ");
+		btnNewButton.setBounds(315, 543, 117, 29);
+		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblAllFieldsFrom = new JLabel("All fields from add flight admin on here ");
+		lblAllFieldsFrom.setBounds(85, 74, 321, 16);
+		frame.getContentPane().add(lblAllFieldsFrom);
+		
+		JButton btnKeep = new JButton("Keep ");
+		btnKeep.setBounds(37, 543, 117, 29);
+		frame.getContentPane().add(btnKeep);
+		
+		JLabel lblTheTableOf = new JLabel("The Table of Informaton Displayed ");
+		lblTheTableOf.setBounds(95, 109, 259, 16);
+		frame.getContentPane().add(lblTheTableOf);
+		
+		JLabel lblIndividualFieldTo = new JLabel("Individual field to update or keep");
+		lblIndividualFieldTo.setBounds(105, 137, 231, 16);
+		frame.getContentPane().add(lblIndividualFieldTo);
+		
+		JLabel lblNewLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/White.jpg")).getImage();
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		Image img1 = new ImageIcon(this.getClass().getResource("/Question.jpg")).getImage();
+		lblNewLabel_1 .setIcon(new ImageIcon(img1));
+		lblNewLabel_1.setBounds(555, 0, 725, 689);
+		frame.getContentPane().add(lblNewLabel_1);
+		lblNewLabel.setIcon(new ImageIcon(img));
+		lblNewLabel.setBounds(0, 0, 1280, 689);
+		frame.getContentPane().add(lblNewLabel);
+	}
+
+}
