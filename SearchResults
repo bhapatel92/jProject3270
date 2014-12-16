@@ -1,0 +1,90 @@
+package gui;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
+import transactionBroker.SearchFlight_Logic;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class SearchResults {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SearchResults window = new SearchResults();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public SearchResults() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0, 0, 1900, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblTabelOfDatabase = new JLabel("tabel of database ");
+		lblTabelOfDatabase.setBounds(6, 6, 178, 16);
+		frame.getContentPane().add(lblTabelOfDatabase);
+		
+		JButton btnAddToCart = new JButton("Add to cart ");
+		btnAddToCart.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 10));
+		Image img2 = new ImageIcon(this.getClass().getResource("/Cart-icon.png")).getImage();
+		btnAddToCart.setIcon(new ImageIcon(img2));
+		btnAddToCart.setBounds(1136, 2, 144, 29);
+		frame.getContentPane().add(btnAddToCart);
+		btnAddToCart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ViewCart.main(null);
+			}
+		});
+		
+		JButton btnNewButton2 = new JButton("");
+		Image imgHomeAgain = new ImageIcon(this.getClass().getResource("/Home.png")).getImage();
+		btnNewButton2 .setIcon(new ImageIcon(imgHomeAgain));
+		btnNewButton2.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnNewButton2.setForeground(new Color(0, 128, 128));
+		btnNewButton2.setBounds(1180,40,55,54); 
+		frame.getContentPane().add(btnNewButton2);
+		btnNewButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage.main(null);
+			}
+		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		Image img1 = new ImageIcon(this.getClass().getResource("/greece.jpg")).getImage();
+		lblNewLabel.setIcon(new ImageIcon(img1));
+		lblNewLabel.setBounds(0, 0, 1280, 685);
+		frame.getContentPane().add(lblNewLabel);
+	}
+
+}
