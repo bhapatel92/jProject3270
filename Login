@@ -1,0 +1,124 @@
+package gui;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.util.Arrays;
+
+import transactionBroker.Login_Logic;
+
+import java.awt.Color;
+
+public class Login {
+
+	private JFrame frame;
+	private JTextField usernameField;
+	private JPasswordField passwordField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login window = new Login();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Login() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 467, 318);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		Image img = new ImageIcon(this.getClass().getResource("/airplane.jpg")).getImage();
+		
+		JLabel lblUsername = new JLabel("Username");
+		lblUsername.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblUsername.setForeground(new Color(0, 255, 0));
+		lblUsername.setBounds(6, 18, 93, 16);
+		frame.getContentPane().add(lblUsername);
+		
+		usernameField = new JTextField();
+
+		usernameField.setBounds(95, 12, 121, 28);
+		frame.getContentPane().add(usernameField);
+		usernameField.setColumns(10);
+		
+		JButton btnLogin = new JButton("Login ");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String x = Login_Logic.login(usernameField, passwordField);
+				if (x.equals("Logged in")) {
+					HomePage.main(null);
+				} else {
+					JOptionPane.showInputDialog(x);
+				}
+			}
+		});
+		btnLogin.setBounds(35, 124, 154, 29);
+		frame.getContentPane().add(btnLogin);
+		
+		JButton btnNewButton = new JButton("Forgot Password ");
+		btnNewButton.setFont(new Font("Lucida Grande", Font.PLAIN, 8));
+		btnNewButton.setBounds(357, 252, 93, 26);
+		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ForgotPassword.main(null);
+			}
+		});
+		
+		passwordField = new JPasswordField();
+
+		passwordField.setBounds(95, 67, 121, 28);
+		frame.getContentPane().add(passwordField);
+		
+		JButton btnRegister = new JButton("Register ");
+		btnRegister.setBounds(165, 249, 117, 29);
+		frame.getContentPane().add(btnRegister);
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Register.main(null);
+			}
+		});
+		
+		JLabel lblPassword = new JLabel("Password ");
+		lblPassword.setForeground(Color.GREEN);
+		lblPassword.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 13));
+		lblPassword.setBounds(6, 67, 93, 16);
+		frame.getContentPane().add(lblPassword);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(img));
+		lblNewLabel.setBounds(0, 0, 500, 300);
+		frame.getContentPane().add(lblNewLabel);
+	}
+	
+}
