@@ -1,0 +1,116 @@
+package gui;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Admin {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Admin window = new Admin();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Admin() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0, 0, 1900, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(65, 56, 61, 16);
+		frame.getContentPane().add(label);
+		
+		JButton btnNewButton2 = new JButton("");
+		Image imgHomeAgain = new ImageIcon(this.getClass().getResource("/Home.png")).getImage();
+		btnNewButton2 .setIcon(new ImageIcon(imgHomeAgain));
+		btnNewButton2.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnNewButton2.setForeground(new Color(0, 128, 128));
+		btnNewButton2.setBounds(0,610,55,54); 
+		frame.getContentPane().add(btnNewButton2);
+		btnNewButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage.main(null);
+			}
+		});
+		
+		JButton btnAddFlight = new JButton("Add Flight");
+		btnAddFlight.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnAddFlight.setBounds(358, 36, 248, 100);
+		frame.getContentPane().add(btnAddFlight);
+		btnAddFlight.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AddFlightsAdmin.main(null);
+			}
+		});
+		
+		JButton btnDeleteFlight = new JButton("Delete Flight ");
+		btnDeleteFlight.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnDeleteFlight.setBounds(26, 36, 248, 100);
+		frame.getContentPane().add(btnDeleteFlight);
+		btnDeleteFlight.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DeleteFlight.main(null);
+			}
+		});
+		
+		JButton btnModification = new JButton("Update Flight Info");
+		btnModification.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnModification.setBounds(674, 36, 248, 100);
+		frame.getContentPane().add(btnModification);
+		btnModification.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				UpdateFlight.main(null);
+			}
+		});
+		
+		JButton btnChangeUserTo = new JButton("Change User to Admin");
+		btnChangeUserTo.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 18));
+		btnChangeUserTo.setBounds(1008, 36, 248, 100);
+		frame.getContentPane().add(btnChangeUserTo);
+		btnChangeUserTo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				UserToAdmin.main(null);
+			}
+		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/admin.jpg")).getImage();
+		lblNewLabel.setIcon(new ImageIcon(img));
+		lblNewLabel.setBounds(-176, 6, 1525, 726);
+		frame.getContentPane().add(lblNewLabel);
+	}
+
+}
